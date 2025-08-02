@@ -7,66 +7,57 @@ public class Series {
     Scanner scanner = new Scanner(System.in);
     boolean running = true;
 
-
-    /* This class implements the interface Series and handles all the CRUD actions logic for the App*/
-
     public void captureSeries() {
-
-            System.out.println("CAPTURE A NEW SERIES");
-            System.out.println("*******************************************");
+        System.out.println("CAPTURE A NEW SERIES");
+        System.out.println("*******************************************");
 
         try {
-            while(running) {
-
-            // ENTER THE SERIES ID
+            while (running) {
+                // ID
                 System.out.print("Enter the series id: ");
                 String seriesId = scanner.nextLine();
-                //Before adding the Id, we must check if it already exists in our list
                 if (searchSeries(seriesId) != null) {
                     System.out.println("A series with ID '" + seriesId + "' already exists! Please use a different ID.");
                     continue;
                 }
 
-            // ENTER THE SERIES NAME
+                // Name
                 System.out.print("Enter the series name: ");
                 String seriesName = scanner.nextLine();
 
-            // ENTER THE SERIES AGE RESTRICTION
+                // Age Restriction
                 int seriesAge = 0;
-                while (running) {
+                while (true) {
                     try {
-                            System.out.print("Enter the series age restriction (between 2 and 18):");
-                            seriesAge = Integer.parseInt(scanner.nextLine());
+                        System.out.print("Enter the series age restriction (between 2 and 18): ");
+                        seriesAge = Integer.parseInt(scanner.nextLine());
 
-                            if (seriesAge < 2 || seriesAge > 18) {
-                                System.out.println("You have entered an incorrect series age!!! ");
-                                System.out.println("Please re-enter the series age >>");
-                            } else {
-                                break;
-                            }
-                        } catch(NumberFormatException e){
-                            System.out.println("You have entered an incorrect series age!!! ");
-                            System.out.println("Please re-enter the series age >>");
+                        if (seriesAge < 2 || seriesAge > 18) {
+                            System.out.println("You have entered an incorrect series age!!! Please re-enter.");
+                        } else {
+                            break;
                         }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number! Please re-enter the series age.");
+                    }
                 }
 
-            //ENTER THE SERIES NUMBER OF EPISODES
-                System.out.print("Enter the number of episodes for " + seriesName + ":");
-                int seriesNumberOfEpisodes = scanner.nextInt();
-                scanner.nextLine(); // consume the leftover newline
+                // Episodes
+                System.out.print("Enter the number of episodes for " + seriesName + ": ");
+                int seriesNumberOfEpisodes = Integer.parseInt(scanner.nextLine());
 
-                System.out.println("Series processed successfully!!!");
+                // Success
+                System.out.println("Series processed successfully!");
 
-            // Create and store the new series
+                // Add to list
                 SeriesModel newSeries = new SeriesModel(seriesId, seriesName, seriesAge, seriesNumberOfEpisodes);
                 seriesList.add(newSeries);
 
                 break;
             }
-        } catch(Exception e) {
-        System.out.println("An error occurred: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
-        System.out.println("Enter (1 to launch menu or any other key to exit)");
     }
 
     public void searchSeries() {
@@ -84,32 +75,28 @@ public class Series {
         } else {
             System.out.println("No series found with ID: " + idToSearch);
         }
-
-        System.out.println("Enter (1 to launch menu or any other key to exit)");
     }
 
     public void updateSeries() {
-
+        System.out.println("[Placeholder] Update Series");
+        // To be implemented
     }
-
 
     public void deleteSeries() {
-
+        System.out.println("[Placeholder] Delete Series");
+        // To be implemented
     }
-
 
     public void seriesReport() {
-
+        System.out.println("[Placeholder] Series Report");
+        // To be implemented
     }
-
 
     public void exitSeriesApplication() {
-
+        System.out.println("Exiting application...");
     }
 
-
-
-    //Helper Method
+    // Helper method
     private SeriesModel searchSeries(String seriesId) {
         for (SeriesModel series : seriesList) {
             if (series.getSeriesId().equalsIgnoreCase(seriesId)) {
@@ -117,13 +104,5 @@ public class Series {
             }
         }
         return null;
-    }
-
-    private void promptToReturnOrExit() {
-        System.out.println("Enter (1) to launch menu or any other key to exit)");
-        String choice = scanner.nextLine();
-        if (!choice.equals("1")) {
-            running = false;
-        }
     }
 }
