@@ -27,7 +27,8 @@ Make sure you have **Java 17 or later** installed.
 
 ### Compile:
 ```
-bash javac Main.java
+mvn compile
+mvn exec:java
 ```
 ---
 ## 👨‍💻 Author 
