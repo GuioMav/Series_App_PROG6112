@@ -8,6 +8,7 @@ public class Series {
     boolean running = true;
 
 
+
     // CAPTURE SERIES
     public void captureSeries() {
         System.out.println("CAPTURE A NEW SERIES");
@@ -26,7 +27,7 @@ public class Series {
                 System.out.print("Enter the series name: ");
                 String seriesName = scanner.nextLine();
                 // Age Restriction
-                int seriesAge = validateSeriesAge();
+                int seriesAge = AppUtils.validateSeriesAge(scanner);
                 // Episodes
                 int seriesNumberOfEpisodes = 0;
                 while(true){
@@ -95,7 +96,7 @@ public class Series {
             String newName = scanner.nextLine();
             foundSeries.setSeriesName(newName);
             // New series age
-            int newAge = validateSeriesAge();
+            int newAge = AppUtils.validateSeriesAge(scanner);
             foundSeries.setSeriesAge(newAge);
             // New series number of episodes
             System.out.println("Enter the series number of episodes: ");
@@ -110,6 +111,7 @@ public class Series {
         }
     }
 
+    // DELETE SERIES
     public void deleteSeries() {
 
         //find the specific series to delete
@@ -156,6 +158,7 @@ public class Series {
         }
     }
 
+    // DISPLAY SERIES REPORT
     public void seriesReport() {
         System.out.println("SERIES REPORT");
         System.out.println("*******************************************");
@@ -181,30 +184,11 @@ public class Series {
         }
     }
 
+    // EXIT APPLICATION
     public void exitSeriesApplication() {
         System.out.println("Exiting application...");
     }
 
-
-
-    // Helper method to validate series age
-    private int validateSeriesAge() {
-        int seriesAge = 0;
-        while (true) {
-            try {
-                System.out.print("Enter the series age restriction (between 2 and 18): ");
-                seriesAge = Integer.parseInt(scanner.nextLine());
-
-                if (seriesAge < 2 || seriesAge > 18) {
-                    System.out.println("You have entered an incorrect series age!!! Please re-enter.");
-                } else {
-                    return seriesAge;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid number! Please re-enter the series age.");
-            }
-        }
-    }
 
     // Helper method
     private SeriesModel searchSeries(String seriesId) {

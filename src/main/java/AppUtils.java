@@ -10,4 +10,22 @@ public class AppUtils {
             seriesApp.running = false;
         }
     }
+
+    public static int validateSeriesAge(Scanner scanner) {
+        int seriesAge;
+        while (true) {
+            try {
+                System.out.print("Enter the series age restriction (between 2 and 18): ");
+                seriesAge = Integer.parseInt(scanner.nextLine());
+
+                if (seriesAge < 2 || seriesAge > 18) {
+                    System.out.println("You have entered an incorrect series age!!! Please re-enter.");
+                } else {
+                    return seriesAge;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number! Please re-enter the series age.");
+            }
+        }
+    }
 }
