@@ -103,13 +103,53 @@ public class Series {
     }
 
     public void deleteSeries() {
-        System.out.println("[Placeholder] Delete Series");
-        // To be implemented
+
+        //find the specific series to delete
+        //send the confirmation message
+        //remove it from the array
+
+        System.out.print("Enter the series id to delete: ");
+        String idToSearch = scanner.nextLine();
+
+        SeriesModel foundSeries = searchSeries(idToSearch);
+
+        if (foundSeries != null) {
+            while(true) {
+            //if the series is found display the details in order to change them
+            System.out.println("Are you sure you want to delete the series: " + foundSeries.getSeriesId()+ " ( "+ foundSeries.getSeriesName() +" ) from the system? Yes (y) to delete No (n) to cancel.");
+            System.out.println("-----------------------------------------");
+
+            String deleteSeries = scanner.nextLine();
+
+            switch (deleteSeries) {
+                case "y" -> {
+                    seriesList.remove(foundSeries);
+                    System.out.println("-----------------------------------------");
+                    System.out.println("Series with Id: " + foundSeries.getSeriesId() + " was deleted! ");
+                    System.out.println("-----------------------------------------");
+                    return;
+                }
+                case "n" -> {
+                    System.out.println("Cancelling deletion...");
+                    return;
+                }
+                default -> {
+                    System.out.println("Invalid Input! Please select: Yes (y) to delete No (n) to cancel.");
+                }
+            }
+            }
+
+
+        } else {
+            //if the series is not found, display the message
+            System.out.println("-----------------------------------------");
+            System.out.println("Series with Series Id: " + idToSearch + " was not found!");
+            System.out.println("-----------------------------------------");
+        }
     }
 
     public void seriesReport() {
-        System.out.println("[Placeholder] Series Report");
-        // To be implemented
+
     }
 
     public void exitSeriesApplication() {
