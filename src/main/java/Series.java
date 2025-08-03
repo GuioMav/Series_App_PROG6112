@@ -7,6 +7,8 @@ public class Series {
     Scanner scanner = new Scanner(System.in);
     boolean running = true;
 
+
+    // CAPTURE SERIES
     public void captureSeries() {
         System.out.println("CAPTURE A NEW SERIES");
         System.out.println("*******************************************");
@@ -20,11 +22,9 @@ public class Series {
                     System.out.println("A series with ID '" + seriesId + "' already exists! Please use a different ID.");
                     continue;
                 }
-
                 // Name
                 System.out.print("Enter the series name: ");
                 String seriesName = scanner.nextLine();
-
                 // Age Restriction
                 int seriesAge = 0;
                 while (true) {
@@ -38,18 +38,17 @@ public class Series {
                             break;
                         }
                     } catch (NumberFormatException e) {
+                        // The catch block, Instead of the app breaking when the user inputs an invalid integer ( e.g.: a, #, *  ), this handles the error and returns a message.
                         System.out.println("Invalid number! Please re-enter the series age.");
                     }
                 }
-
                 // Episodes
                 System.out.print("Enter the number of episodes for " + seriesName + ": ");
                 int seriesNumberOfEpisodes = Integer.parseInt(scanner.nextLine());
 
-                // Success
                 System.out.println("Series processed successfully!");
 
-                // Add to list
+                // Adding the series to the list
                 SeriesModel newSeries = new SeriesModel(seriesId, seriesName, seriesAge, seriesNumberOfEpisodes);
                 seriesList.add(newSeries);
 
@@ -60,6 +59,7 @@ public class Series {
         }
     }
 
+    // SEARCH SERIES
     public void searchSeries() {
         System.out.println("SEARCH FOR A SERIES");
         System.out.println("*******************************************");
@@ -70,10 +70,18 @@ public class Series {
         SeriesModel foundSeries = searchSeries(idToSearch);
 
         if (foundSeries != null) {
-            System.out.println("Series found!");
-            System.out.println(foundSeries);
+            //if the series is found display the details
+            System.out.println("-----------------------------------------");
+            System.out.println("SERIES ID: " + foundSeries.getSeriesId());
+            System.out.println("SERIES NAME: " + foundSeries.getSeriesName());
+            System.out.println("SERIES AGE RESTRICTION: " + foundSeries.getSeriesAge());
+            System.out.println("SERIES NUMBER OF EPISODES: " + foundSeries.getSeriesNumberOfEpisodes());
+            System.out.println("-----------------------------------------");
         } else {
-            System.out.println("No series found with ID: " + idToSearch);
+            //if the series is not found, display the message
+            System.out.println("-----------------------------------------");
+            System.out.println("Series with Series Id: " + idToSearch + " was not found!");
+            System.out.println("-----------------------------------------");
         }
     }
 

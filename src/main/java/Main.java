@@ -30,23 +30,23 @@ public class Main {
                     switch (choiceInput) {
                         case "1" -> {
                             seriesApp.captureSeries();
-                            promptReturn(scanner, seriesApp);
+                            AppUtils.promptReturn(scanner, seriesApp);
                         }
                         case "2" -> {
                             seriesApp.searchSeries();
-                            promptReturn(scanner, seriesApp);
+                            AppUtils.promptReturn(scanner, seriesApp);
                         }
                         case "3" -> {
                             seriesApp.updateSeries();
-                            promptReturn(scanner, seriesApp);
+                            AppUtils.promptReturn(scanner, seriesApp);
                         }
                         case "4" -> {
                             seriesApp.deleteSeries();
-                            promptReturn(scanner, seriesApp);
+                            AppUtils.promptReturn(scanner, seriesApp);
                         }
                         case "5" -> {
                             seriesApp.seriesReport();
-                            promptReturn(scanner, seriesApp);
+                            AppUtils.promptReturn(scanner, seriesApp);
                         }
                         case "6" -> {
                             seriesApp.exitSeriesApplication();
@@ -61,15 +61,8 @@ public class Main {
             }
 
         } catch (Exception e) {
+            // This catch block prevents the app from breaking if any of the methods called to perform the mais function ever returns an error.
             System.out.println("An error occurred: " + e.getMessage());
-        }
-    }
-
-    private static void promptReturn(Scanner scanner, Series seriesApp) {
-        System.out.println("Enter (1) to launch menu or any other key to exit)");
-        String choice = scanner.nextLine();
-        if (!choice.equals("1")) {
-            seriesApp.running = false;
         }
     }
 }
