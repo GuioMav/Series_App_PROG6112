@@ -28,8 +28,16 @@ public class Series {
                 // Age Restriction
                 int seriesAge = validateSeriesAge();
                 // Episodes
-                System.out.print("Enter the number of episodes for " + seriesName + ": ");
-                int seriesNumberOfEpisodes = Integer.parseInt(scanner.nextLine());
+                int seriesNumberOfEpisodes = 0;
+                while(true){
+                    try {
+                        System.out.print("Enter the number of episodes for " + seriesName + ": ");
+                        seriesNumberOfEpisodes = Integer.parseInt(scanner.nextLine());
+                        break;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid number! Please re-enter the number of episodes");
+                    }
+                }
 
                 System.out.println("Series processed successfully!");
 
@@ -149,7 +157,28 @@ public class Series {
     }
 
     public void seriesReport() {
+        System.out.println("SERIES REPORT");
+        System.out.println("*******************************************");
 
+        if (seriesList.isEmpty()) {
+            System.out.println("No series have been captured yet!");
+            System.out.println("-----------------------------------------");
+            return;
+        }
+
+            int seriesNumber = 1;
+        for (SeriesModel series : seriesList) {
+
+            System.out.println("Series " + seriesNumber);
+            System.out.println("-----------------------------------------");
+            System.out.println("SERIES ID: " + series.getSeriesId());
+            System.out.println("SERIES NAME: " + series.getSeriesName());
+            System.out.println("SERIES AGE RESTRICTION: " + series.getSeriesAge());
+            System.out.println("SERIES NUMBER OF EPISODES: " + series.getSeriesNumberOfEpisodes());
+            System.out.println("-----------------------------------------");
+
+            seriesNumber ++;
+        }
     }
 
     public void exitSeriesApplication() {
