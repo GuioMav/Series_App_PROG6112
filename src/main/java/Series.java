@@ -26,22 +26,7 @@ public class Series {
                 System.out.print("Enter the series name: ");
                 String seriesName = scanner.nextLine();
                 // Age Restriction
-                int seriesAge = 0;
-                while (true) {
-                    try {
-                        System.out.print("Enter the series age restriction (between 2 and 18): ");
-                        seriesAge = Integer.parseInt(scanner.nextLine());
-
-                        if (seriesAge < 2 || seriesAge > 18) {
-                            System.out.println("You have entered an incorrect series age!!! Please re-enter.");
-                        } else {
-                            break;
-                        }
-                    } catch (NumberFormatException e) {
-                        // The catch block, Instead of the app breaking when the user inputs an invalid integer ( e.g.: a, #, *  ), this handles the error and returns a message.
-                        System.out.println("Invalid number! Please re-enter the series age.");
-                    }
-                }
+                int seriesAge = validateSeriesAge();
                 // Episodes
                 System.out.print("Enter the number of episodes for " + seriesName + ": ");
                 int seriesNumberOfEpisodes = Integer.parseInt(scanner.nextLine());
@@ -85,9 +70,36 @@ public class Series {
         }
     }
 
+    // UPDATE SERIES
     public void updateSeries() {
-        System.out.println("[Placeholder] Update Series");
-        // To be implemented
+        System.out.print("Enter the series id to update: ");
+        String idToSearch = scanner.nextLine();
+
+        SeriesModel foundSeries = searchSeries(idToSearch);
+
+        if (foundSeries != null) {
+            //if the series is found display the details in order to change them
+            System.out.println("    Updating: " + foundSeries.getSeriesName());
+            System.out.println("-----------------------------------------");
+
+            // New series name
+            System.out.println("Enter the series name: ");
+            String newName = scanner.nextLine();
+            foundSeries.setSeriesName(newName);
+            // New series age
+            int newAge = validateSeriesAge();
+            foundSeries.setSeriesAge(newAge);
+            // New series number of episodes
+            System.out.println("Enter the series number of episodes: ");
+            int newNumberOfEpisodes = scanner.nextInt();
+            foundSeries.setSeriesNumberOfEpisodes(newNumberOfEpisodes);
+
+        } else {
+            //if the series is not found, display the message
+            System.out.println("-----------------------------------------");
+            System.out.println("Series with Series Id: " + idToSearch + " was not found!");
+            System.out.println("-----------------------------------------");
+        }
     }
 
     public void deleteSeries() {
@@ -102,6 +114,27 @@ public class Series {
 
     public void exitSeriesApplication() {
         System.out.println("Exiting application...");
+    }
+
+
+
+    // Helper method to validate series age
+    private int validateSeriesAge() {
+        int seriesAge = 0;
+        while (true) {
+            try {
+                System.out.print("Enter the series age restriction (between 2 and 18): ");
+                seriesAge = Integer.parseInt(scanner.nextLine());
+
+                if (seriesAge < 2 || seriesAge > 18) {
+                    System.out.println("You have entered an incorrect series age!!! Please re-enter.");
+                } else {
+                    return seriesAge;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number! Please re-enter the series age.");
+            }
+        }
     }
 
     // Helper method
