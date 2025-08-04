@@ -191,7 +191,7 @@ public class Series {
 
 
     // Helper method
-    private SeriesModel searchSeries(String seriesId) {
+    SeriesModel searchSeries(String seriesId) {
         for (SeriesModel series : seriesList) {
             if (series.getSeriesId().equalsIgnoreCase(seriesId)) {
                 return series;

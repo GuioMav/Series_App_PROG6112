@@ -27,9 +27,18 @@ Make sure you have **Java 17 or later** installed.
 
 ### Compile:
 ```
+mvn clean install
 mvn compile
+```
+### Run the App:
+```
 mvn exec:java
 ```
+### Run the tests:
+```
+mvn test
+```
+
 ---
 ## 👨‍💻 Author 
 
