@@ -4,9 +4,27 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30"/> Java 
 
 ---
+<h2 align="center">📚 Table of Contents</h2>
+
+---
+
+- [ℹ️ Info](#-Info)
+- [🧰 Tech Stack](#-tech-stack)
+- [🛠 Features](#-features)
+- [🧪 How to Run](#-how-to-run)
+- [👨‍💻 Author](#-author)
+- [📝 License](#-license)
+
+---
 
 ## ℹ️ Info
 This application was developed as part of the **PROG6112** Practical Assignment at *[IIE Rosebank College](https://www.rosebankcollege.co.za/)*, Cape Town.
+
+---
+## 🧰 Tech Stack
+- Java 17
+- Apache Maven
+- JUnit (for testing)
 
 ---
 
@@ -17,11 +35,6 @@ This application was developed as part of the **PROG6112** Practical Assignment 
 - Input validation for age and episode count
 
 ---
-
-[//]: # (## 📸 Sample Output)
-
-[//]: # ()
-[//]: # (---)
 
 ## 🧪 How to Run
 
