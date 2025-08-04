@@ -17,9 +17,11 @@ This application was developed as part of the **PROG6112** Practical Assignment 
 - Input validation for age and episode count
 
 ---
-## 📸 Sample Output
 
----
+[//]: # (## 📸 Sample Output)
+
+[//]: # ()
+[//]: # (---)
 
 ## 🧪 How to Run
 
