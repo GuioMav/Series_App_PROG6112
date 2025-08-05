@@ -1,7 +1,7 @@
 public class SeriesModel {
     private String seriesId;
     private String seriesName;
-    // Note: regarding the "seriesAgeRestriction", in the instructions it is required to use a "String" but on point 1.3 of the same, we must implement a function to determine if and only allow ages between 2 and 18, which would overcomplicated the logic while we can simplify it using int instead of string for a simpler function
+    //Note: regarding the "seriesAgeRestriction", in the instructions it is required to use a "String" but on point 1.3 of the same, we must implement a function to determine if and only allow ages between 2 and 18, which would overcomplicated the logic while we can simplify it using int instead of string for a simpler function
     private int seriesAge;
     private int seriesNumberOfEpisodes;
 
