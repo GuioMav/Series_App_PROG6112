@@ -56,6 +56,7 @@ mvn test
 ## 👨‍💻 Author 
 
 Developed by [Manuel Mavungo](https://github.com/guiomav) <br/>
+DISD Yr-1 G-1 ST10466974 <br/>
 Programmed for the PROG6112 module. <br>
 
 **IIE ROSEBANK COLLEGE**
