@@ -61,6 +61,12 @@ Programmed for the PROG6112 module. <br>
 
 **IIE ROSEBANK COLLEGE**
 
+## 📝 Tools
+---
+- IDE: Intellij
+- Bainstorm and research: OpenAI ChatGPT 4.1
+- Version Control: Git and GitHub
+
 ---
 ## 📝 License
 
