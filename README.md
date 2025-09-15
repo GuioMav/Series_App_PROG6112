@@ -1,3 +1,6 @@
+## Important
+### [part 2](https://github.com/GuioMav/Store_App_section-B)
+
 ## TV MANAGEMENT APPLICATION ![Java](https://img.shields.io/badge/Built%20With-Java-orange?logo=java&logoColor=white)
 
 
